@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Git Introduction II - Remote Repositories</title>
+
+    <meta name="description" content="Introduction to Git Remote Repositories">
+    <meta name="author" content="Luis Ibanez">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="revealjs/css/reveal.min.css">
+    <link rel="stylesheet" href="revealjs/css/theme/sky.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="revealjs/lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="revealjs/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+     <div class="slides">
+    <section>
+        <h1>Databases</h1>
+          <h2>Introduction</h2>
+          <p>
+            <small>Created by Nic DePaula</small>
+        </p>
+        </section>
+        <section>
+            <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US">
+             <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/88x31.png">
+        </a>
+          <br>
+        <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dct:title" rel="dct:type">Intro do Databases</span>
+           by
+          <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Nic DePaula</span>
+           is licensed under a
+          <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>.
+        </section>
+        <section>
+            <h3>What is a database?</h3>
+<div>
+            <br>
+        </div>
+<div>"One or more large structured sets of persistent data, usually associated with software to update and query the data. A simple database might be a single file containing many records, each of which contains the same set of fields where each field is a certain fixed width. "<br>
+</div>
+<div>
+        <br>
+    </div>
+<div>
+    <br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<font style="font-size: 18px;">database. (n.d.). The Free On-line Dictionary of Computing. Retrieved January 24, 2014, from Dictionary.com website: http://dictionary.reference.com/browse/database</font>
+<br>
+</div>
+        </section>
+<section>
+    <h3 style="font-style: normal; font-variant: normal;">WHAT IS A DATABASE?</h3>
+<div>
+    <br>
+    </div>
+<div>
+<div>"a collection of related tables and other structures"&nbsp;</div>
+<div>or</div>
+<div>"a self-describing collection of related records"</div>
+<div>(<span>Kroenke and Auer, Database Concepts</span>
+    <span>&nbsp;)</span>
+</div>
+<div>
+    <br>
+</div>
+<div>
+<br>
+</div>
+<div>Simply put:&nbsp;</div>
+<div>a collection of structured or organized data</div>
+</div>
+        </section>
+<section>
+    <h2>Database System&nbsp;</h2>
+<div>
+    <br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<div>Composed of four components:</div>
+<div>
+<br>
+</div>
+<div>1) users</div>
+<div>2) the database application</div>
+<div>3) database management system (DBMS)</div>
+<div>4) the database</div>
+</div>
+</section>
+<section>
+    <h2>A (relational) database</h2>
+<div>
+    <br>
+</div>
+<div>For relational databases, emphasis on:&nbsp;</div>
+<div>"self-describing" and "related tables"</div>
+<div>
+<br>
+</div>
+<div>Self-describing: " a description of the structure of the database is contained within the database itself"</div>
+<div>
+<br>
+</div>
+<div>Related tables: tables that are related by some identifier included in both tables.</div>
+</section>
+<section>
+    <h2>
+        <font color="#ffffff">Related tableS:</font>
+    </h2>
+<div>
+<div style="text-align: left;">
+    <font color="#ffffff">
+        <span>EmployeeTable</span>
+    </font>
+</div>
+<table frame="VOID" cellspacing="0" cols="4" rules="NONE" border="0">
+<colgroup>
+<col width="86">
+<col width="116">
+<col width="110">
+<col width="78">
+</colgroup>
+<tbody>
+<tr>
+<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" width="86" height="19" align="LEFT">
+<b>
+<font face="Calibri,Calibri" color="#ffffff">empID</font>
+</b>
+</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" width="116" align="LEFT">
+<b>
+<font face="Calibri,Calibri" color="#ffffff">last_name</font>
+</b>
+</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" width="110" align="LEFT">
+<b>
+<font face="Calibri,Calibri" color="#ffffff">first_name</font>
+</b>
+</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" width="78" align="LEFT">
+<b>
+<font face="Calibri,Calibri" color="#ffffff">dept_num</font>
+</b>
+</td>
+		</tr>
+<tr>
+<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="RIGHT" sdval="201" sdnum="1033;">
+<font face="Calibri,Calibri" color="#ffffff">201</font>
+</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="LEFT">
+<font face="Calibri,Calibri" color="#ffffff">Zhang</font>
+</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="LEFT">
+<font face="Calibri,Calibri" color="#ffffff">Jing</font>
+</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="20" sdnum="1033;">
+<font face="Calibri,Calibri" color="#ffffff">20</font>
+</td>
+		</tr>
+<tr>
+<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="17" align="RIGHT" sdval="205" sdnum="1033;">
+<font face="Calibri,Calibri" color="#ffffff">205</font>
+</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="LEFT">
+<font face="Calibri,Calibri" color="#ffffff">Jung</font>
+</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="LEFT">
+<font face="Calibri,Calibri" color="#ffffff">Mary</font>
+</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="20" sdnum="1033;">
+<font face="Calibri,Calibri" color="#ffffff">20</font>
+</td>
+		</tr>
+<tr>
+<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="17" align="RIGHT" sdval="229" sdnum="1033;">
+<font face="Calibri,Calibri" color="#ffffff">229</font>
+</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="LEFT">
+<font face="Calibri,Calibri" color="#ffffff">Lee</font>
+</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="LEFT">
+<font face="Calibri,Calibri" color="#ffffff">Michael</font>
+</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="RIGHT" sdval="10" sdnum="1033;">
+<font face="Calibri,Calibri" color="#ffffff">10</font>
+</td>
+		</tr>
+</tbody>
+</table>
+<br>
+<div style="text-align: left;">DepartmentTable</div>
+<table frame="VOID" cellspacing="0" cols="3" rules="NONE" border="0">
+<colgroup>
+<col width="86">
+<col width="86">
+<col width="86">
+</colgroup>
+<tbody>
+<tr>
+<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" width="86" height="19" align="LEFT">
+<b>
+<font face="Calibri,Calibri" color="#ffffff">dept_num</font>
+</b>
+</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" width="86" align="LEFT">
+<b>
+<font face="Calibri,Calibri" color="#ffffff">dep_nam</font>
+</b>
+</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" width="86" align="LEFT">
+<font color="#ffffff">
+    <b>dep_location</b>
+</font>
+</td>
+		</tr>
+<tr>
+<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="18" align="RIGHT" sdval="20" sdnum="1033;">
+<font face="Calibri,Calibri" color="#ffffff">10</font>
+</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="LEFT">
+<font face="Calibri,Calibri" color="#ffffff">Executive</font>
+</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="LEFT">
+<font color="#ffffff">Building 1</font>
+</td>
+		</tr>
+<tr>
+<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="17" align="RIGHT" sdval="20" sdnum="1033;">
+<font face="Calibri,Calibri" color="#ffffff">20</font>
+</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="LEFT">
+<font face="Calibri,Calibri" color="#ffffff">Executive</font>
+</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="LEFT">
+<font color="#ffffff">Building 2</font>
+</td>
+		</tr>
+<tr>
+<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="17" align="RIGHT" sdval="10" sdnum="1033;">
+<font face="Calibri,Calibri" color="#ffffff">30</font>
+</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="LEFT">
+<font face="Calibri,Calibri" color="#ffffff">Accounting</font>
+</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="LEFT">
+<font color="#ffffff">Building 3</font>
+</td>
+		</tr>
+<tr>
+<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="17" align="LEFT">
+<b>
+<font face="Calibri,Calibri" color="#ffffff">
+    <br>
+</font>
+</b>
+</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="LEFT">
+<b>
+<font face="Calibri,Calibri" color="#ffffff">
+    <br>
+</font>
+</b>
+</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="LEFT">
+<b>
+<font face="Calibri,Calibri" color="#ffffff">
+    <br>
+</font>
+</b>
+</td>
+		</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section>
+    <h2>Metadata</h2>
+<div>
+    <br>
+</div>
+<div>Data about the data.&nbsp;</div>
+<div>
+<br>
+</div>
+<div>This could be data about the structure of the database, such as: names of tables, names of columns, properties of the fields and so on...</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+<div>Metadata could also include more information about the origins of the data, such as time of collection, context and others.</div>
+</section>
+<section>
+    <h2>Database management System&nbsp;</h2>
+<div>(DBMS)</div>
+<div>
+    <br>
+</div>
+<div>A complex software application that enables the creation, processing and management of databases.</div>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+</section>
+<section>
+    <h2>Functions of a DBMS</h2>
+<div>
+<div style="font-size: 35.87535858154297px; font-style: normal; font-variant: normal;">
+    <br>
+</div>
+<div style="font-style: normal; font-variant: normal;">
+<ul style="font-size: 35.87535858154297px;">
+<li>Create database and tables</li>
+<li>Create supporting structures (eg indexes)</li>
+<li>Read database data</li>
+<li>Modify data</li>
+<li>Maintain database structure</li>
+<li>Enforce rules</li>
+<li>Control concurrency</li>
+<li>Provide security</li>
+<li>Perform backup and recover</li>
+</ul>
+<div style="text-align: left;">
+<font style="font-size: 18px;">&nbsp; &nbsp; &nbsp;&nbsp;</font>
+</div>
+<div style="text-align: left;">
+<font style="font-size: 18px;">&nbsp; &nbsp; &nbsp; Kroenke and Auer (2011) Database Concepts.</font>
+</div>
+</div>
+</div>
+</section>
+<section>
+    <h2>ApPlication Programs</h2>
+<div>
+    <br>
+</div>
+<div>Communicate with the DBMS to:</div>
+<div>
+<br>
+</div>
+<div>
+<ul>
+<li>Create and process forms</li>
+<li>Process user queries</li>
+<li>Create and process reports</li>
+<li>Execute application logic</li>
+<li>Control application</li>
+</ul>
+<div style="text-align: left;">
+<br>
+</div>
+</div>
+<div style="text-align: left;">
+<blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">
+    <div style="text-align: left;">DBMS will usually include applications that carry out these tasks</div>
+</blockquote>
+</div>
+</section>
+<section>
+    <h2>Personal vs.&nbsp;<span style="font-size: 75.96px;">Enterprise</span>
+</h2>
+<h2>
+    <span style="font-size: 75.96px;">&nbsp;database systems</span>
+</h2>
+<div>
+<font style="font-size: 32px;">
+    <br>
+</font>
+</div>
+<div>
+<font style="font-size: 32px;">Personal: &nbsp;</font>
+</div>
+<div>
+<font style="font-size: 32px;">
+    <br>
+</font>
+</div>
+<div>
+<font style="font-size: 32px;">Usually reserved for a defined and small number of data types and uses. For example: lab research on particular results of a certain type of experiments; database for small retail business; and so on...</font>
+</div>
+<div>
+<font style="font-size: 32px;">
+    <br>
+</font>
+</div>
+<div>
+<br>
+</div>
+</section>
+<section>
+    <h2 style="font-style: normal; font-variant: normal;">PERSONAL VS.&nbsp;<span style="font-size: 75.96px;">ENTERPRISE</span>
+</h2>
+<h2 style="font-style: normal; font-variant: normal;">
+    <span style="font-size: 75.96px;">&nbsp;DATABASE SYSTEMS</span>
+</h2>
+<h2>
+</h2>
+<p>
+<font style="font-size: 32px;">
+    <font>
+        <br>
+    </font>
+</font>
+<font style="font-size: 32px;">
+    <font>Enterprise:<br>
+    </font>
+</font>
+<font style="font-size: 32px;">
+    <span>More complex system that support large number of tables and operations. Usually will have different applications communicating with the DBMS.</span>
+</font>
+</p>
+<p>
+<font style="font-size: 32px;">
+    <span>
+        <br>
+    </span>
+</font>
+</p>
+</section>
+<section>
+    <h2>Enterprise Level Database SYSTEM</h2>
+<div>
+<img src="http://management-class.co.uk/public_html/courseware/learner_support/images/ist210image.jpg" style="width: 617.7190304366197px; height: 435.5367965987234px; max-height: none; max-width: none;">
+    <br>
+</div>
+<div>
+    <font style="font-size: 18px;">
+        <br>
+    </font>
+    </div>
+<div>
+<font style="font-size: 18px;">Image from: http://management-class.co.uk/public_html/courseware/learner_support/images/ist210image.jpg</font>
+    <br>
+</div>
+</section>
+</div>
+
+
+    </div>
+
+    <script src="revealjs/lib/js/head.min.js"></script>
+    <script src="revealjs/js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'revealjs/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'revealjs/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'revealjs/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'revealjs/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
