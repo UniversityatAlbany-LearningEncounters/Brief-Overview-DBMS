@@ -1,7 +1,5 @@
-Encounter Template
+Brief Overview of DBMS
 ==================
-
-Basic template to create learning encounters with Reveal.js.
 
 
 The content of this repository is copyrighted by contributors and it is distributed under the following licenses.
